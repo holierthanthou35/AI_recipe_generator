@@ -1,0 +1,101 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("pexels-suzukii-xingfu-872835.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.hero-content {
+  text-align: center;
+  color: #ffffff;
+}
+
+.hero-content h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #ff6f69;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #ff5c55;
+}
+
+.signup-btn {
+  display: inline-block;
+  /*color: white;*/
+  padding: 12px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.signup-btn:hover {
+  background-color: #ff5c55;
+}
+
+.recipes-section {
+  padding: 50px 0;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.recipe-card {
+  background-color: #ffffff;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card img {
+  width: 100%;
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.recipe-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.recipe-card p {
+  font-size: 16px;
+}
