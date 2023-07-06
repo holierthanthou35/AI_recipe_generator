@@ -1,9 +1,11 @@
 import openai
 
-# Load the API key
-openai.api_key = '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'
+openai.api_key = 'YOUR_API_KEY'
 
-# Function to generate the webpage content
+with open('pantry_.js', 'r') as file:
+    ingredients = file.readlines()
+
+
 def generate_webpage(ingredients):
     # Generate the HTML content using OpenAI API
     response = openai.Completion.create(
@@ -15,19 +17,13 @@ def generate_webpage(ingredients):
         stop=None,
         timeout=5
     )
-    
-    # Extract the generated HTML content
+
     generated_html = response.choices[0].text.strip()
     
     return generated_html
 
-# Read the ingredients from pantry_.js
-with open('pantry_.js', 'r') as file:
-    ingredients = file.readlines()
 
-# Generate the webpage content
 webpage_content = generate_webpage(ingredients)
 
-# Write the content to a new HTML file
 with open('generated_webpage.html', 'w') as file:
     file.write(webpage_content)
