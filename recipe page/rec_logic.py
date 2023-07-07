@@ -1,33 +1,42 @@
+import re
+import os
 import openai
+import json
+from dotenv import load_dotenv
+from langchain.chat_models import ChatOpenAI
 
-# Load the API key
-openai.api_key = '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'
+load_dotenv()
+file_path = 'C:\\Users\\avish\\AI_recipe_generator\\backend\\items.json'
 
-# Function to generate the webpage content
-def generate_webpage(ingredients):
-    # Generate the HTML content using OpenAI API
-    response = openai.Completion.create(
-        engine='davinci',
-        prompt=f"<!DOCTYPE html><html><body><h1>Recipe</h1><ul>{''.join(f'<li>{ingredient}</li>' for ingredient in ingredients)}</ul></body></html>",
-        max_tokens=200,
-        temperature=0.6,
-        n=1,
-        stop=None,
-        timeout=5
-    )
-    
-    # Extract the generated HTML content
-    generated_html = response.choices[0].text.strip()
-    
-    return generated_html
+if os.path.exists(file_path):
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+else:
+    print('File not found.')
+    exit()
 
-# Read the ingredients from pantry_.js
-with open('pantry_.js', 'r') as file:
-    ingredients = file.readlines()
+items = []
+for item in data:
+    items.append(item)
 
-# Generate the webpage content
-webpage_content = generate_webpage(ingredients)
 
-# Write the content to a new HTML file
-with open('generated_webpage.html', 'w') as file:
-    file.write(webpage_content)
+def create_dish_prompt(list_items):
+    prompt = f"""create a detailed recipe with only the following ingredients: {','.join(list_items)}. \n"\
+    +f"Start off with 'recipe name', 'time required to cook' 'ingredients list' and 'step-by-step procedure for cooking """
+    return prompt
+
+
+response = openai.Completion.create(
+  model="text-davinci-003",
+  prompt=create_dish_prompt(items),
+  temperature=0.3,
+  max_tokens=200,
+  top_p=1.0,
+  frequency_penalty=0.0,
+  presence_penalty=0.0
+)
+
+
+def extract_title(text):
+    return re.findall('^.*Recipe Name: .*$', text, re.MULTILINE)[0].strip().split('Recipe Name: ')[-1]
+
