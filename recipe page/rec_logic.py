@@ -35,9 +35,18 @@ recipe_dict = json.loads(output_str)
 
 print(recipe_dict)
 print(type(recipe_dict))
-# recipename = recipe_dict.recipename
-# time = recipe_dict.time
-# procedure = recipe_dict.procedure
+recipename = recipe_dict['recipename']
+time_to_prepare = recipe_dict['time']
+procedure_ = recipe_dict['procedure']
 
-# print(procedure)
 
+def generate_html(title, time, procedure):
+    with open('index_page.html', 'r') as file:
+        template = file.read()
+
+    html = template.format(title=title, time=time, procedure=procedure)
+    with open('output.html', 'w') as file:
+        file.write(html)
+
+
+generate_html(recipename, time_to_prepare, procedure_)
