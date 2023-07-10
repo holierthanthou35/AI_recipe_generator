@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To-Do_list</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="box" id="heading"><h1>Recipe Generator 🥗</h1></div>
+    
+    <div class="box">
+        {% for item in item_list %}
+        <div class="item">
+        <p>{{ item }}</p>
+        </div>
+        {% endfor %}
+        
+        <form action="/" , method="post", class="item">
+            <input type="text" name="new_item" placeholder="New Item">
+            <button type="submit" name="button">+</button>
+        </form>
+    </div>  
+    
+    
+</body>
+</html>
