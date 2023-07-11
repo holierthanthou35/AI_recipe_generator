@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Pantry</title>
+		<link href="/static/css/style_pantry.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body style="background: url(/static/imgs/back2.jpg) ;">
+		<h1>PANTRY</h1>
+		<div class="container">
+			<div class="buttons">
+				<div class="button-group">
+					<h2>General Materials</h2>
+					<form method="post">
+					<input type="submit" name= "button" class="pantry-btn" value="salt">Salt</button>
+					<input type="submit" name= "button" class="pantry-btn" value="sugar">
+					<input type="submit" name= "button" class="pantry-btn" value="flour">
+
+					</form>
+					<!-- Add more buttons for general materials -->
+				</div>
+				<div class="button-group">
+					<h2>Groceries</h2>
+					<form method="post">
+					<input type="submit" name= "button" class="pantry-btn" value="rice">
+					<input type="submit" name= "button" class="pantry-btn" value="pasta">
+						
+					<input type="submit" name= "button" class="pantry-btn" value="canned beans">
+					</form>
+					<!-- Add more buttons for groceries -->
+				</div>
+				<div class="button-group">
+					<h2>Vegetables with Spices</h2>
+					<form method="post">
+					<input type="submit" name= "button" class="pantry-btn" value="onion">
+					
+					<input type="submit" name= "button" class="pantry-btn" value="garlic">
+					<input type="submit" name= "button" class="pantry-btn" value="tomato">
+						
+					</form>
+					<!-- Add more buttons for vegetables with spices -->
+				</div>
+			</div>
+			<div class="shopping-list">
+				<h2>Shopping List</h2>
+				<ul id="shopping-list">
+					{% for items in food_items %}
+					<li>{{ items }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<a href="/recipe-page" class="rec-button"> generate recipe </a>>
+	</body>
+</html>

@@ -2,9 +2,9 @@
 <html>
 <head>
   <title>Leftover Recipes</title>
-  <link rel="stylesheet" type="text/css" href="stylelp.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/stylelp.css">
 </head>
-<body>
+<body style="background:url(/static/imgs/back1.jpg)">
 <a href="/login" class="signup-btn">
   Sign Up
 </a>>
@@ -12,7 +12,10 @@
     <div class="hero-content">
       <h1>Discover Delicious Recipes<br>Using Leftovers</h1>
       <p>Don't let your leftovers go to waste! Learn how to turn them into mouthwatering dishes.</p>
-      <a href="/pantry" class="btn">
+      <form action="/render-page" method="get">
+      <button type="submit">Pantry</button>
+      </form>
+
         Enter pantry
       </a>
     </div>
